@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1 id="title">Un premier titre</h1>
+    
+    <label for="name">Changer le titre:</label>
+    <input type="text" id="name" name="name">
+    
+    <div class="square_characteristics" >
+        <div class="range_characteristics">
+            <h3>Paramètres de la couleur</h3>
+            <input type="range" id="background_red" min="0" max="255" class="slider" >
+            <input type="range" id="background_green" min="0" max="255" class="slider" >
+            <input type="range" id="background_blue" min="0" max="255" class="slider" >
+            <input type="range" id="background_alpha" min="0" max="1" step="0.1" class="slider" >
+        </div>
+        
+        <div>
+            <h3>Arrondir les contour</h3>
+            <input type="range" id="border_radius" min="0" max="50" class="slider" >
+        </div>
+
+    </div>
+
+    <div id="square" class="square"></div>
+
+    <script>
+        //Changer le titre
+        const title = document.getElementById('title')
+        const change_title = document.getElementById('name')
+
+        change_title.oninput = function () {
+            title.innerHTML = change_title.value
+        }
+
+        //changer la couleur de l'arrière-plan du carré
+        const square = document.getElementById('square')
+        const background_red = document.getElementById('background_red')
+        const background_green = document.getElementById('background_green')
+        const background_blue = document.getElementById('background_blue')
+        const background_alpha = document.getElementById('background_alpha')
+
+        function changeBackgroudColor () {
+            square.style.backgroundColor = 'rgba(' + background_red.value + ', ' + background_green.value + ','+ background_blue.value + ','+background_alpha.value +')'
+        }
+
+        background_red.oninput = changeBackgroudColor
+        background_green.oninput = changeBackgroudColor
+        background_blue.oninput = changeBackgroudColor
+        background_alpha.oninput = changeBackgroudColor
+
+        //Arrondir les bords  
+        const change_radius = document.getElementById('border_radius')
+
+            change_radius.addEventListener = function () {
+            square.style.borderRadius = change_radius.value +'px'
+            console.log(change_radius)
+        }
+    </script>
+</body>
+</html>
