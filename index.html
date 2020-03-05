@@ -31,7 +31,7 @@
             <h3>Ombre portée</h3>
             <input type="range" id="axe_x" min="-100" max="100" class="slider" value="0">
             <input type="range" id="axe_y" min="-100" max="100" class="slider" value="0">
-            <input type="range" id="density" min="0" max="100" class="slider" value="0">
+            <input type="range" id="density" min="0" max="70" class="slider" value="0">
         </div>
 
     </div>
@@ -76,17 +76,13 @@
         const change_shadow_axe_y = document.getElementById('axe_y')
         const change_density = document.getElementById('density')
 
-        change_shadow_axe_x.oninput = function () {
+        function changeBoxShadow () {
             square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
         }
 
-        change_shadow_axe_y.oninput = function () {
-            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
-        }
-
-        change_density.oninput = function () {
-            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
-        }
+        change_shadow_axe_x.oninput = changeBoxShadow
+        change_shadow_axe_y.oninput = changeBoxShadow
+        change_density.oninput = changeBoxShadow
     
     </script>
 </body>
