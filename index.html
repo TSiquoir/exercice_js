@@ -27,9 +27,17 @@
             <input type="range" id="border_radius" min="0" max="50" class="slider" >
         </div>
 
+        <div>
+            <h3>Ombre portée</h3>
+            <input type="range" id="axe_x" min="-100" max="100" class="slider" value="0">
+            <input type="range" id="axe_y" min="-100" max="100" class="slider" value="0">
+            <input type="range" id="density" min="0" max="100" class="slider" value="0">
+        </div>
+
     </div>
 
     <div id="square" class="square"></div>
+
 
     <script>
         //Changer le titre
@@ -59,10 +67,27 @@
         //Arrondir les bords  
         const change_radius = document.getElementById('border_radius')
 
-            change_radius.addEventListener = function () {
-            square.style.borderRadius = change_radius.value +'px'
-            console.log(change_radius)
+        change_radius.oninput = function () {
+            square.style.borderRadius = change_radius.value +'%'
         }
+        
+        //Ombre portée
+        const change_shadow_axe_x = document.getElementById('axe_x')
+        const change_shadow_axe_y = document.getElementById('axe_y')
+        const change_density = document.getElementById('density')
+
+        change_shadow_axe_x.oninput = function () {
+            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
+        }
+
+        change_shadow_axe_y.oninput = function () {
+            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
+        }
+
+        change_density.oninput = function () {
+            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
+        }
+    
     </script>
 </body>
 </html>
