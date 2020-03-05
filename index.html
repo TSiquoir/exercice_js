@@ -7,37 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1 id="title">Un premier titre</h1>
-    
-    <label for="name">Changer le titre:</label>
-    <input type="text" id="name" name="name">
-    
-    <div class="square_characteristics" >
-        <div class="range_characteristics">
-            <h3>Paramètres de la couleur</h3>
-            <input type="range" id="background_red" min="0" max="255" class="slider" >
-            <input type="range" id="background_green" min="0" max="255" class="slider" >
-            <input type="range" id="background_blue" min="0" max="255" class="slider" >
-            <input type="range" id="background_alpha" min="0" max="1" step="0.1" class="slider" >
-        </div>
+    <div>
+        <header class="title">
+            <h1 id="title">Un premier titre</h1>
         
-        <div>
-            <h3>Arrondir les contour</h3>
-            <input type="range" id="border_radius" min="0" max="50" class="slider" >
-        </div>
+            <label for="name">Changer le titre:</label>
+            <input type="text" id="name" name="name">
+        </header>
+        
+        <div class="range_characteristics">
+            <div class="characteristics">
+                <h3>Paramètres de la couleur</h3>
+                <input type="range" id="background_red" min="0" max="255" class="slider" >
+                <input type="range" id="background_green" min="0" max="255" class="slider" >
+                <input type="range" id="background_blue" min="0" max="255" class="slider" >
+                <input type="range" id="background_alpha" min="0" max="1" step="0.1" class="slider" >
+            </div>
+            
+            <div class="characteristics">
+                <h3>Arrondir les contour</h3>
+                <input type="range" id="border_radius" min="0" max="50" class="slider" >
+            </div>
 
-        <div>
-            <h3>Ombre portée</h3>
-            <input type="range" id="axe_x" min="-100" max="100" class="slider" value="0">
-            <input type="range" id="axe_y" min="-100" max="100" class="slider" value="0">
-            <input type="range" id="density" min="0" max="70" class="slider" value="0">
+            <div class="characteristics">
+                <h3>Ombre portée</h3>
+                <input type="range" id="axe_x" min="-100" max="100" class="slider" value="0">
+                <input type="range" id="axe_y" min="-100" max="100" class="slider" value="0">
+                <input type="range" id="density" min="0" max="70" class="slider" value="0">
+            </div>
         </div>
-
+        <div class="square_position">
+            <div id="square" class="square"></div>
+        </div>    
     </div>
-
-    <div id="square" class="square"></div>
-
 
     <script>
         //Changer le titre
@@ -77,7 +79,7 @@
         const change_density = document.getElementById('density')
 
         function changeBoxShadow () {
-            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px black'
+            square.style.boxShadow = change_shadow_axe_x.value + 'px ' + change_shadow_axe_y.value + 'px ' + change_density.value + 'px grey'
         }
 
         change_shadow_axe_x.oninput = changeBoxShadow
